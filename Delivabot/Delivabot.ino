@@ -16,7 +16,7 @@ void setup() {
   r.add_drivetrain(&d);
   r.add_gripper(&g);
   r.add_line_follower(&l);
-  #if DEBUGs
+  #if DEBUG
   test();
   #else
   // Production code
