@@ -23,7 +23,30 @@ int RealRobot::pick_up_object(){
 
 int RealRobot::go_to_room(int room){
   Serial.println("Going to room " + String(room));
-  return 0;
+  enum State {GOING, TURNING, STOPPING};
+  static State s;
+  switch(s){
+    case GOING:
+      int left_speed = this->line_follower->left_motor_command();
+      int right_speed = this->line_follower->right_motor_command();
+      this->drivetrain->send(left_speed, right_speed);
+      if (this->line_follower->rooms_passed() == room/2)
+        s = TURNING;
+    break;
+    case TURNING:
+      if(room % 2 == 0)
+        this->drivetrain->turn_right();
+      else
+        this ->drivetrain->turn_left();
+      if (this->line_follower->turned())
+        s = STOPPING; 
+    break;
+    case STOPPING:
+      this->drivetrain->stop();
+      return 0;
+    break;
+    }
+  return 1;
   }
 
 int RealRobot::drop_off_object(){
