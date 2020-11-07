@@ -3,6 +3,7 @@
 
 class Gripper{
   private:
+  
   public:
   };
 
