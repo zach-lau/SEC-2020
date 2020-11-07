@@ -1,8 +1,10 @@
 #ifndef __delivalib__
 #define __delivalib__
 
+#include "Robot.h"
+
 // Deliver function takes in four separate functions to execute
-int deliver(int pickup_func(), int go_func(int), int drop_off_func(), int return_func(), int room);
+int deliver(int pickup_func(Robot*), int go_func(Robot*,int), int drop_off_func(Robot*), int return_func(Robot*), int room);
 
 // Pickup functions
 int pickup();

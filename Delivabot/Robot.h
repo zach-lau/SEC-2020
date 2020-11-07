@@ -15,17 +15,27 @@ class Robot {
 
   public:
   // Robot actions
-    int pick_up_object();
-    int go_to_room(int room);
-    int drop_of_object();
-    int return_to_start(); 
+    virtual int pick_up_object() = 0;
+    virtual int go_to_room(int room) = 0;
+    virtual int drop_off_object() = 0;
+    virtual int return_to_start() = 0; 
 
   // Register line followers and stuff
     void add_object_locator(ObjectLocator o){object_locator = o;}
     void add_gripper(Gripper g){gripper = g;}
     void add_drivetrain(DriveTrain d){drivetrain = d;}
     void add_line_follower(LineFollower l){line_follower = l;}
+    void deliver();
   
+  };
+
+class TestRobot : public Robot{
+  private:
+  public:
+    int pick_up_object();
+    int go_to_room(int room);
+    int drop_off_object();
+    int return_to_start();
   };
 
 #endif

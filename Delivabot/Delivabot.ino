@@ -3,7 +3,7 @@
 #include "Test.h"
 
 #define DEBUG 1
-Robot r;
+TestRobot r;
 
 void setup() {
   // Test code
@@ -18,6 +18,7 @@ void setup() {
 
 void loop() {
   #if DEBUG
+  r.deliver();
   #else
   #endif
 }

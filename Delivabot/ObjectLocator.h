@@ -8,4 +8,15 @@ class ObjectLocator{
     
   };
 
+class TestObjectLocator:ObjectLocator{
+  private:
+
+  public:
+  };
+
+class RealObjectLocator:ObjectLocator{
+  private:
+  public:
+  };
+
 #endif

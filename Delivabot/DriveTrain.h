@@ -2,9 +2,17 @@
 #define __drive_train__
 
 class DriveTrain{
-  public:
-
   private:
+  public:
+  };
+
+class TestDriveTrain:DriveTrain{
+  private:
+  public:
+  };
+
+class RealDriveTrain:DriveTrain{
+  
   };
 
 #endif

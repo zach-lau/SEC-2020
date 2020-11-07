@@ -7,4 +7,16 @@ class LineFollower{
   public:
   };
 
+
+class TestLineFollower:LineFollower {
+  private:
+
+  public:
+  };
+
+class RealLineFollwer:LineFollower{
+  private:
+  public:
+  };
+
 #endif
