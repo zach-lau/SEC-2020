@@ -2,11 +2,22 @@
 #include "Robot.h"
 #include "Test.h"
 
+#define DEBUG 1
+Robot r;
+
 void setup() {
-  // put your setup code here, to run once:
+  // Test code
+  Serial.begin(9600);
+  #if DEBUG
   test();
+  #else
+  // Production code
+  
+  #endif
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  #if DEBUG
+  #else
+  #endif
 }

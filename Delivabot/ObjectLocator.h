@@ -5,7 +5,7 @@ class ObjectLocator{
   private:
 
   public:
-  
+    
   };
 
 #endif
