@@ -3,7 +3,7 @@
 #include "Test.h"
 
 #define DEBUG 1
-TestRobot r;
+RealRobot r;
 TestGripper g;
 TestDriveTrain d;
 TestObjectLocator o;
