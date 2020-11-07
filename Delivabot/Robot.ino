@@ -9,7 +9,7 @@
 // Delivery of the thing
 void Robot::deliver(){
   enum State {PICKUP, GO, DELIVER, RETURN, DONE};
-  static State s;
+  static State s = PICKUP;
   switch(s){
     case PICKUP:
       if (this->pick_up_object() == 0) s = GO;
@@ -24,7 +24,7 @@ void Robot::deliver(){
       if (this->return_to_start() == 0) s = DONE;
     break;
     case DONE:
-      Serial.print("Done");
+      Serial.print("Done\n");
     break;
     }
   }

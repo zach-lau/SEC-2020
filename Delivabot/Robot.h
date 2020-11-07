@@ -7,11 +7,11 @@
 #include "LineFollower.h"
 
 class Robot {
-  private:
-    ObjectLocator object_locator; // Module for object location
-    Gripper gripper;
-    DriveTrain drivetrain;
-    LineFollower line_follower; // Line following odule
+  protected:
+    ObjectLocator* object_locator; // Module for object location
+    Gripper* gripper;
+    DriveTrain* drivetrain;
+    LineFollower* line_follower; // Line following odule
 
   public:
   // Robot actions
@@ -21,16 +21,26 @@ class Robot {
     virtual int return_to_start() = 0; 
 
   // Register line followers and stuff
-    void add_object_locator(ObjectLocator o){object_locator = o;}
-    void add_gripper(Gripper g){gripper = g;}
-    void add_drivetrain(DriveTrain d){drivetrain = d;}
-    void add_line_follower(LineFollower l){line_follower = l;}
+    void add_object_locator(ObjectLocator* o){object_locator = o;}
+    void add_gripper(Gripper* g){gripper = g;}
+    void add_drivetrain(DriveTrain* d){drivetrain = d;}
+    void add_line_follower(LineFollower* l){line_follower = l;}
     void deliver();
   
   };
 
 class TestRobot : public Robot{
   private:
+  public:
+    int pick_up_object();
+    int go_to_room(int room);
+    int drop_off_object();
+    int return_to_start();
+  };
+
+class RealRobot : public Robot{
+  private:
+
   public:
     int pick_up_object();
     int go_to_room(int room);

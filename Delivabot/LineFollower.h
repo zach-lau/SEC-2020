@@ -3,18 +3,20 @@
 
 class LineFollower{
   private:
-
+  
   public:
+    int left_motor_command();
+    void right_motor_command();
   };
 
 
-class TestLineFollower:LineFollower {
+class TestLineFollower : public LineFollower {
   private:
 
   public:
   };
 
-class RealLineFollwer:LineFollower{
+class RealLineFollower : public LineFollower{
   private:
   public:
   };

@@ -4,11 +4,19 @@
 
 #define DEBUG 1
 TestRobot r;
+TestGripper g;
+TestDriveTrain d;
+TestObjectLocator o;
+TestLineFollower l;
 
 void setup() {
   // Test code
   Serial.begin(9600);
-  #if DEBUG
+  r.add_object_locator(&o);
+  r.add_drivetrain(&d);
+  r.add_gripper(&g);
+  r.add_line_follower(&l);
+  #if DEBUGs
   test();
   #else
   // Production code
